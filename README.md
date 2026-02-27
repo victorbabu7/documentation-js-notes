@@ -240,7 +240,5 @@ export default function BookingsPage() {
 
 Functions are the base of my entire ParcelPoint project. Every page, every action, every calculation is done by a function. In classic JavaScript a function returns data, but in React a function can directly return what is displayed on the screen. This is what makes React so powerful.
 
----
-
 ## Part 5 : Classes (OOP, Inheritance)
-```
+
