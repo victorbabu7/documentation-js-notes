@@ -1,9 +1,8 @@
 
-```
+
 # documentation-js-notes
 JS learning notes, Parcel Point project documentation and the technologies used.
 
----
 
 ## INTRODUCTION
 
