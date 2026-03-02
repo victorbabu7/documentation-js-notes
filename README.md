@@ -19,16 +19,16 @@ Step by step, chapter by chapter, I am building a bridge between what I learn in
 
 ## PLAN
 
-- 1. Getting Started with JavaScript, React, Next.js
-- 2. JavaScript Essentials (Variables, Operators, Data Types)
-- 3. Multiple Values (Arrays, Objects) and Logic Statements (if/else, switch)
-- 4. Loops (while, for, for of)
-- 5. Functions (Arrow functions, Callbacks)
-- 6. Classes (OOP, Inheritance)
-- 7. Built-In Methods (.map(), .filter(), .reduce())
-- 8. The DOM (Selecting elements)
-- 9. Dynamic Element Manipulation
-- 10. Interactive Content and Event Listeners
+1. Getting Started with JavaScript, React, Next.js
+ 2. JavaScript Essentials (Variables, Operators, Data Types)
+ 3. Multiple Values (Arrays, Objects) and Logic Statements (if/else, switch)
+ 4. Loops (while, for, for of)
+ 5. Functions (Arrow functions, Callbacks)
+ 6. Classes (OOP, Inheritance)
+ 7. Built-In Methods (.map(), .filter(), .reduce())
+ 8. The DOM (Selecting elements)
+ 9. Dynamic Element Manipulation
+ 10. Interactive Content and Event Listeners
 
 ---
 
@@ -42,16 +42,14 @@ I discovered that to code effectively, I must set up an environment with a code 
 
 If I want to display a message I use `console.log()`, `console.table()` for visualizing structured data, and `console.error()` to report errors.
 
-```javascript
+javascript
 console.log("hello victor");
 console.table("");
-```
 
 If I want to integrate JS on my HTML file, I have two ways :
 - Directly in HTML file between `<script>` tags
 - Or by linking an external JavaScript file — which I consider the best practice.
 
----
 
 ### 1.1 Connection to my ParcelPoint project
 
@@ -198,8 +196,8 @@ const add = (x, y) => x + y;
 function greet(name = "victor") {
   return "Hello " + name;
 }
-greet();        // "Hello victor"
-greet("Babu"); // "Hello Babu"
+greet();         "Hello victor"
+greet("Babu");  "Hello Babu"
 ```
 
 ---
@@ -211,24 +209,22 @@ A simple JS function receives data, does something, and returns a result. But in
 In my ParcelPoint project, every page is a function. For example, the transactions page is a big function called `TransactionsPage` that returns everything displayed on the screen.
 
 In the **transactions page**, I use an arrow function `fetchTransactions` to fetch data from the API :
-```
+
 const fetchTransactions = async () => {
   const token = localStorage.getItem('token');
   const res = await fetch(url, {
-    headers: { 'Authorization': `Bearer ${token}` }
-  });
+headers: { 'Authorization': `Bearer ${token}` }});
 };
-```
 
 In the **coupons page**, I use an arrow function as a callback inside `.filter()` :
-```javascript
+
 const filtered = coupons.filter(c => {
   return c.coupon_code?.toLowerCase().includes(searchTerm.toLowerCase());
 });
-```
+
 
 In the **bookings page**, the function `BookingsPage` is a React component — a function that returns HTML :
-```
+
 export default function BookingsPage() {
   return (
     <Layout>
@@ -236,7 +232,7 @@ export default function BookingsPage() {
     </Layout>
   );
 }
-```
+
 
 Functions are the base of my entire ParcelPoint project. Every page, every action, every calculation is done by a function. In classic JavaScript a function returns data, but in React a function can directly return what is displayed on the screen. This is what makes React so powerful.
 
@@ -258,13 +254,13 @@ Inheritance with extends — I can create a child class that inherits all the pr
 
 
 In my book, i learned that the constructor of a class defines what properties an object must have :
-```
+
 class Parcel {
 constructor(id, parcelid, statu) {
 this.id = id;
 this.parcel_id = parcel_id;
 this.status = status}}
-```
+
 
 in my project, the interface does exactly the same thing , just Same idea, just written differently.
 ```
