@@ -240,5 +240,136 @@ export default function BookingsPage() {
 
 Functions are the base of my entire ParcelPoint project. Every page, every action, every calculation is done by a function. In classic JavaScript a function returns data, but in React a function can directly return what is displayed on the screen. This is what makes React so powerful.
 
-## Part 5 : Classes (OOP, Inheritance)
+## Part 6 : Classes (OOP, Inheritance)
+I discovered that classes are essentially models for creating objects. 
 
+Here are the technical concepts I learned :
+
+The **Constructor** : this is the special method I use to initialize my objects. It runs automatically as soon as I use the new keyword.
+The **this** keyword  : I use it to refer to the specific instance of the object I am creating or working with.
+
+**Methods** :these are functions defined directly inside the class, without the function keyword, that allow my objects to perform actions.
+
+**Encapsulation**  : I learned how to protect my data by using the **#** symbol before a property name, for example **#nom**, to make it private. To read or modify this data safely, I use getters and setters.
+
+Inheritance with extends — I can create a child class that inherits all the properties and methods of a parent class. In this case, I must call **super()**  in the child constructor to initialize the parent.
+
+**exemple**
+
+
+In my book, i learned that the constructor of a class defines what properties an object must have :
+```
+class Parcel {
+constructor(id, parcelid, statu) {
+this.id = id;
+this.parcel_id = parcel_id;
+this.status = status}}
+```
+
+in my project, the interface does exactly the same thing , just Same idea, just written differently.
+```
+interface Parcel {
+id: number;
+parcel_id: string;
+status: number;}
+```
+Im book , i learned that a child class inherits from a parent class using extends.
+ParcelStats is like a child  , it does not repeat all the parcel information, it just adds the counters on top :
+```typescript
+
+interface Parcel { ... }
+interface ParcelStats {
+total: number;
+active: number;
+collected: number;
+discarded: number;}
+```
+
+In my book, i learned that encapsulation means hiding data inside a class using #.
+In my project, setStats stores the data inside the component. Nobody from outside can modify it directly. Same principle :
+```typescript
+setStats({
+  total: uniqueParcels.length,
+  active: uniqueParcels.filter(p => p.status === 0).length,
+  collected: uniqueParcels.filter(p => p.status === 1).length,
+  discarded: uniqueParcels.filter(p => p.status === 2).length,
+});
+```
+**7. Built-In Methods (.map(), .filter(), .reduce())**
+
+on my book ,  see the signification : 
+map() : transforms each value in an array and creates a new one.
+.filter(): keeps only the elements that match a condition.
+.reduce() :combines all values into one single result.
+
+in mya project , i  see .filter() and .reduce() used in my parcels page and transactions page in ParcelPoint :
+```
+active: uniqueParcels.filter(p => p.status === 0).length,
+total: transactions.reduce((acc, curr) => acc + parseFloat(String(curr.amount || 0)), 0),
+```
+## Part 7 : The DOM and Dynamic Element Manipulation
+
+The DOM is a tree representation of my HTML page. JavaScript uses it to select and modify elements in real time without reloading the page.
+
+To select elements i use :
+```
+document.getElementById("myId")
+document.querySelector(".myClass")
+document.querySelectorAll("p")
+```
+
+To modify elements i can change the text, the style, the classes or create new elements :
+```
+element.innerText = "bonjour";
+element.style.backgroundColor = "red";
+element.classList.toggle("is-open");
+```
+In ParcelPoint project, React does this automatically for me.
+Instead of selecting elements manually, i just change a state variable and React updates the page :
+```typescript
+const [loading, setLoading] = useState(true);
+
+{loading ? <Loader2 className="animate-spin" /> : <div>{parcels}</div>}
+```
+
+Instead of classList.add(), i define classes dynamically based on data :
+```typescript
+className={user.active ? 'text-emerald-500' : 'text-red-500'}
+```
+React is built on top of the DOM , it does the same thing but faster and automatically.
+
+##**Interactive Content and Event Listeners**
+ 
+
+I learne that an event is an action that happens on the page — a click, a key press, a mouse movement. I can listen to these actions and run code when they happen.
+
+In classic JavaScript i use addEventListener to listen to events :
+```javascript
+document.getElementById("btn").addEventListener("click", myFunction);
+```
+
+In React i don't need addEventListener anymore. I write the event directly in the component :
+```
+<button onClick={myFunction}>Click me</button>
+```
+
+I also learne event.target.value to get what a user types in an input field.
+In React it works exactly the same way.
+
+I can see both concepts used in my ParcelPoint project.
+
+In my parcels page, i use onClick to sync the data when the button is clicked :
+```
+<button onClick={fetchParcels}>
+  Sync Data
+</button>
+```
+
+In my bookings page, i use onChange and event.target.value to get what the user types in the search bar :
+```
+<input
+  onChange={(e) => setSearchTerm(e.target.value)}
+/>
+```
+
+In classic JavaScript i manage events manually. In React i just write onClick or onChange directly in the component and React handles everything automatically.
