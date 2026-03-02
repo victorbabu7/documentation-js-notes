@@ -267,3 +267,17 @@ In my bookings page, i use onChange and event.target.value to get what the user 
   onChange={(e) => setSearchTerm(e.target.value)} />
 
 In classic JavaScript i manage events manually. In React i just write onClick or onChange directly in the component and React handles everything automatically.
+
+
+# b. React 
+   
+   1. JSX, rendering, components, props)
+      -----------------------------------
+a. JSX is a special syntax that allows me to write HTML directly within JavaScript.
+   Without JSX, I would have to create each element manually in JavaScript. With JSX, I simply write the HTML and JavaScript together in the same file, making the code much easier to read and write.
+   With JSX, I simply write the HTML and JavaScript together in the same file, making the code much easier to read and write.
+   
+b. rendering :  This is when React determines what needs to change on the screen. When I modify something, React compares the old version of the component with the new one and only updates the parts that have actually changed to remain ultra-fast. And in my parcelpoint  project, I use this method . 
+
+c. Props : Props are like arguments that you pass to a function. They allow you to send information from a parent component to a child component.
+
