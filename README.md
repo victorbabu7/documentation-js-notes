@@ -58,12 +58,6 @@ My ParcelPoint project is written in Next.js, which is a framework based on Reac
 I learned how to create variables using let, var and const. A variable is like a box where I store information to use later in my code. I understood that const is for values that never change, and let is for values that can change. I also discovered data types : text (String), numbers (Number), booleans (Boolean), and empty values (null and undefined). Finally, I learned operators  arithmetic to do calculations, comparison to compare values, and logical to combine conditions.
 
 
-# 2.1 Connection to my ParcelPoint project
-for exemple 
-In the **transactions page**, I used const to store the user token :
-
-const token = localStorage.getItem('token');
-
 
 # Part 3 : Multiple Values (Arrays and Objects) and Logic Statements
 
